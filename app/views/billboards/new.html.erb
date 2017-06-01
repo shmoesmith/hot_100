@@ -1,0 +1,11 @@
+<h1>Add a new regional billboard</h1>
+<%= form_for @billboard do |f| %>
+<%= f.label :title %>
+<%= f.text_field :title %>
+<br />
+
+<%=f.label :description %>
+<%=f.text_field :description %>
+<br />
+<%= f.submit %>
+<% end %>

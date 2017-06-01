@@ -1,0 +1,9 @@
+<h1>Top song billboards by region</h1>
+<h4><%= link_to 'Add a new billboard', new_billboard_path %></h4>
+<% @billboards.each do |billboard| %>
+<h2> <%= billboard.title %></h2>
+<h4><%= billboard.description %></h4>
+<p><%= link_to 'Show me the top songs!', billboard_path(billboard) %>
+<%= link_to 'Update this billboard', edit_billboard_path(billboard) %>
+<%= link_to 'Remove this billboard', billboard, method: :delete %> </p>
+<% end %>
