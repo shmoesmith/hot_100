@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 root 'billboards#index' 
 
-resources :billboards
-resources :songs
+resources :billboards do
+  resources :songs
+  end
 end

@@ -25,8 +25,10 @@ ActiveRecord::Schema.define(version: 20170601215159) do
   create_table "songs", force: :cascade do |t|
     t.string "song_title"
     t.string "song_artist"
+    t.bigint "billboard_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["billboard_id"], name: "index_songs_on_billboard_id"
   end
 
 end

@@ -1,2 +1,7 @@
-<h1>Songs#index</h1>
-<p>Find me in app/views/songs/index.html.erb</p>
+<h1>Top Songs</h2>
+<% @songs.each do |song| %>
+<h3>Title: <%= @song.title %></h3>
+<h5>Artist: <%= @song.artist %></h5>
+<p><%= link_to 'Update Title or Artist', edit_song_path(song) %>
+<%= link_to 'Remove Song', song, method: :delete %></p>
+<% end %>
