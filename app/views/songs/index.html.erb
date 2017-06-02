@@ -5,3 +5,4 @@
 <p><%= link_to 'Update Title or Artist', edit_song_path(song) %>
 <%= link_to 'Remove Song', song, method: :delete %></p>
 <% end %>
+<%= link_to 'Add Song', new_billboard_song_path(params[:billboard_id]) %>

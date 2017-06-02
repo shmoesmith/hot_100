@@ -1,37 +1,37 @@
 class SongsController < ApplicationController
   def index
-    @billboard = Billboard.find(params[billboard_id])
-    @songs = @billboard.song.all
+    @billboard = Billboard.find(params[:billboard_id])
+    @songs = @billboard.songs
   end
 
   def show
-    @billboard = Billboard.find(params[billboard_id])
+    @billboard = Billboard.find(params[:billboard_id])
     @song = @billboard.song.find(params[:id])
   end
 
   def new
-    @billboard = Billboard.find(params[billboard_id])
-    @song = @billboard.song.new
+    @billboard = Billboard.find(params[:billboard_id])
+    @song = @billboard.songs.new
   end
 
   def edit
-    @billboard = Billboard.find(params[billboard_id])
+    @billboard = Billboard.find(params[:billboard_id])
     @song = @billboard.song.find(params[:id])
   end
 
   def create
-    @billboard = Billboard.find(params[billboard_id])
+    @billboard = Billboard.find(params[:billboard_id])
     @song = @billboard.song.new(song_params)
 
       if @song.save
-        redirect_to songs_path
+        redirect_to billboard_song_path
       else
         render :new
       end
   end
 
   def update
-    @billboard = Billboard.find(params[billboard_id])
+    @billboard = Billboard.find(params[:billboard_id])
     @song = @billboard.song.find(params[:id])
       if @song.update(song_params)
           redirect_to songs_path
@@ -42,7 +42,7 @@ class SongsController < ApplicationController
 
 
   def destroy
-    @billboard = Billboard.find(params[billboard_id])
+    @billboard = Billboard.find(params[:billboard_id])
     @song = @billboard.song.find(params[:id])
     @song.destroy
     redirect_to songs_path
